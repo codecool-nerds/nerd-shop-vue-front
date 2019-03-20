@@ -1,12 +1,15 @@
 <template>
   <div>
-    <h1>Shop</h1>
+    <h1>{{ selectedCategory }}</h1>
   </div>
 </template>
 
 <script>
     export default {
-        name: "Shop"
+        name: "Shop",
+        props: [
+            'selectedCategory'
+        ]
     }
 </script>
 

@@ -1,19 +1,24 @@
 <template>
-  <div>
-    <h1>Categories here</h1>
-    <router-link to="/">Go to home</router-link>
-    <br>
-    <router-link to="/shop">Go to shop</router-link>
-    <br>
-    <router-link to="/product/1">Go to product details</router-link>
-    <br>
-    <router-link to="/basket">Go to basket</router-link>
-  </div>
+  <v-layout>
+    <v-btn v-for="category in categories"
+           block
+           @click="selectCategory(category)"
+    >{{ category }}</v-btn>
+  </v-layout>
 </template>
 
 <script>
     export default {
-        name: "NavBar"
+        name: "NavBar",
+        data: () => ({
+            categories: ['GAME', 'MOUSE', 'KEYBOARD', 'HEADSET', 'OTHER']
+        }),
+        methods: {
+            selectCategory(category) {
+                this.$emit('categoryChosen', category);
+                this.$router.push('/shop');
+            }
+        }
     }
 </script>
 

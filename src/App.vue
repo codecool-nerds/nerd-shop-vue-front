@@ -1,10 +1,10 @@
 <template>
   <v-app>
       <Header></Header>
-      <NavBar></NavBar>
+      <NavBar @categoryChosen="selectedCategory = $event"></NavBar>
       <v-content>
         <v-container fluid>
-          <router-view></router-view>
+          <router-view :selectedCategory="selectedCategory"></router-view>
         </v-container>
       </v-content>
       <Footer></Footer>
@@ -25,7 +25,7 @@ export default {
   },
   data () {
     return {
-      //
+      selectedCategory: ''
     }
   }
 }
