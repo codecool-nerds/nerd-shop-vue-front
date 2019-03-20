@@ -10,7 +10,7 @@
             @keyup="searchIfEnterPressed"
             single-line
     ></v-text-field>
-    <v-menu offset-y>
+    <v-menu offset-y open-on-hover>
       <template v-slot:activator="{on}">
         <v-btn v-on="on" flat>
           <v-avatar size="36px" class="mx-2">
@@ -20,8 +20,13 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-tile>
+        <v-list-tile @click="">
+          <v-list-tile-title>Cart</v-list-tile-title>
+          <v-icon>shopping_cart</v-icon>
+        </v-list-tile>
+        <v-list-tile @click="">
           <v-list-tile-title>Logout</v-list-tile-title>
+          <v-icon>settings_power</v-icon>
         </v-list-tile>
       </v-list>
     </v-menu>
