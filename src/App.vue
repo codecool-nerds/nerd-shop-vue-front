@@ -1,13 +1,13 @@
 <template>
   <v-app>
-      <Header></Header>
-      <NavBar @categoryChosen="selectedCategory = $event"></NavBar>
-      <v-content>
-        <v-container fluid>
-          <router-view :selectedCategory="selectedCategory"></router-view>
-        </v-container>
-      </v-content>
-      <Footer></Footer>
+    <Header></Header>
+    <NavBar @categoryChosen="selectedCategory = $event" style="max-height: max-content;"></NavBar>
+    <v-content>
+      <v-container fluid>
+        <router-view :selectedCategory="selectedCategory"></router-view>
+      </v-container>
+    </v-content>
+    <Footer></Footer>
   </v-app>
 </template>
 

@@ -1,10 +1,15 @@
 <template>
-  <v-layout>
-    <v-btn v-for="category in categories"
-           block
-           @click="selectCategory(category)"
-    >{{ category }}</v-btn>
-  </v-layout>
+  <v-container class="dupa">
+    <v-layout align-start justify-space-around row>
+      <v-flex v-for="(category, i) in categories"
+              :key="i">
+        <v-btn
+               block
+               @click="selectCategory(category)"
+        >{{ category }}</v-btn>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
