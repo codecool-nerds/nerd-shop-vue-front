@@ -1,11 +1,13 @@
 <template>
-  <v-container fluid grid-list-xs>
-    <v-layout row wrap>
+  <v-container grid-list-lg>
+    <v-layout row justify-center wrap>
       <v-flex
-        v-for="(product, i) in products"
-        :key="i"
+        v-for="product in products"
+        :key="product.id"
       >
-        <ProductsGridItem :product="product"></ProductsGridItem>
+        <ProductsGridItem
+                :product="product"
+        ></ProductsGridItem>
       </v-flex>
     </v-layout>
   </v-container>

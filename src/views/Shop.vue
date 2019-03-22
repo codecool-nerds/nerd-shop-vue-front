@@ -48,7 +48,8 @@
                     "price": 79.90,
                     "quantity": 3,
                     "imageURL": null,
-                    "description": "Jest bez kabla! To daje dużą swobodę."
+                    "description": "Jest bez kabla! To daje dużą swobodę. Jest bez kabla! To daje dużą swobodę. " +
+                        "Jest bez kabla! To daje dużą swobodę.Przezajebista! Jest bez kabla! To daje dużą swobodę."
                 }]
         })
     }
