@@ -66,7 +66,9 @@
         },
         methods: {
             addProductToCart(){
-              this.$emit('addToCart', this.product);
+                let productToAdd = Object.assign({}, this.product);
+                productToAdd.quantity = 1;
+                this.$emit('addToCart', productToAdd);
             }
         }
     }
