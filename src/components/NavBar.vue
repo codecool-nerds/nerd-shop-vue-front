@@ -1,5 +1,5 @@
 <template>
-  <v-container class="dupa">
+  <v-container class="pa-0">
     <v-layout align-start justify-space-around row>
       <v-flex v-for="(category, i) in categories"
               :key="i">

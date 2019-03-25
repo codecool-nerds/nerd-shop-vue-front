@@ -4,7 +4,8 @@
             :basketCapacity="basketCapacity"></Header>
     <NavBar
             @categoryChosen="selectedCategory = $event"
-            style="max-height: max-content;"></NavBar>
+            style="max-height: max-content;"
+    ></NavBar>
     <v-content>
       <v-container fluid>
         <router-view :selectedCategory="selectedCategory"

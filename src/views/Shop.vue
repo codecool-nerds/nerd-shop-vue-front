@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="py-0">
     <ProductsGrid :displayMode="'shop'"
                   :products=products
                   @addToCart="$emit('addToCart', $event)"

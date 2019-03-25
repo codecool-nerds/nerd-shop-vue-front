@@ -1,5 +1,6 @@
 <template>
-  <v-container>
+  <v-container class="py-0">
+    <BasketSummary :basket="basket"></BasketSummary>
     <ProductsGrid
       :displayMode="'basket'"
       :products="basket"
@@ -10,9 +11,10 @@
 
 <script>
 import ProductsGrid from "../components/ProductsGrid";
+import BasketSummary from "../components/BasketSummary";
 export default {
   name: "BasketDetails",
-  components: { ProductsGrid },
+  components: {BasketSummary, ProductsGrid },
   props: ["basket"],
   methods: {
     removeFromCart(id) {
