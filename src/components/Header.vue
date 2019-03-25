@@ -21,7 +21,7 @@
       </template>
       <v-list>
         <v-list-tile @click="goToBasket">
-          <v-list-tile-title>Cart</v-list-tile-title>
+          <v-list-tile-title>Cart ({{ this.basketCapacity }})</v-list-tile-title>
           <v-icon>shopping_cart</v-icon>
         </v-list-tile>
         <v-list-tile @click="">
@@ -36,6 +36,9 @@
 <script>
     export default {
         name: "Header",
+        props: [
+            'basketCapacity'
+        ],
         data: () => ({
             searchText: '',
             drawer: null

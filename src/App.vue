@@ -1,7 +1,10 @@
 <template>
   <v-app>
-    <Header></Header>
-    <NavBar @categoryChosen="selectedCategory = $event" style="max-height: max-content;"></NavBar>
+    <Header
+            :basketCapacity="basketCapacity"></Header>
+    <NavBar
+            @categoryChosen="selectedCategory = $event"
+            style="max-height: max-content;"></NavBar>
     <v-content>
       <v-container fluid>
         <router-view :selectedCategory="selectedCategory"
@@ -32,9 +35,25 @@ export default {
           basket: []
       }
     },
+    computed: {
+      basketCapacity() {
+          let capacity = 0;
+          for(let product of this.basket) {
+              capacity += product.quantity;
+              console.log(product)
+          }
+          return capacity;
+      }
+    },
     methods: {
-        addToCart(product) {
-            this.basket.push(product)
+        addToCart(productToAdd) {
+            for (let product of this.basket) {
+                if (product.id === productToAdd.id) {
+                    product.quantity += productToAdd.quantity;
+                    return;
+                }
+            }
+            this.basket.push(productToAdd)
         }
     }
 }

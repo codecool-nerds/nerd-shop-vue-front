@@ -35,9 +35,10 @@
           <div>
             <span class="grey--text text--darken-1">Category: {{ product.category.toLowerCase() }}</span><br>
             <v-divider light></v-divider>
-            <span>Price: <strong>{{ product.price.toFixed(2) }} zł</strong></span><br>
+            <span v-if="displayMode==='shop'">Price: <strong>{{ product.price.toFixed(2) }} zł</strong></span>
+            <span v-else>Price: <strong>{{ this.priceOfAllItems.toFixed(2) }} zł</strong> ({{ this.product.price.toFixed(2) }} zł each)</span><br>
             <span v-if="displayMode==='shop'">Available: <strong :class="`${availabilityColor}--text`">{{ available }}</strong></span>
-            <span v-else>Quantity: <strong>{{this.product.quantity}}</strong></span><br>
+            <span v-else>Quantity: <strong>{{ this.product.quantity }}</strong></span><br>
           </div>
         </v-card-title>
         <v-card-text>
@@ -63,6 +64,9 @@
             },
             availabilityColor() {
               return this.available==='yes' ? "green" : "red";
+            },
+            priceOfAllItems() {
+                return this.product.quantity * this.product.price;
             }
         },
         methods: {
