@@ -41,7 +41,6 @@ export default {
           let capacity = 0;
           for(let product of this.basket) {
               capacity += product.quantity;
-              console.log(product)
           }
           return capacity;
       }
