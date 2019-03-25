@@ -3,7 +3,6 @@
         <v-img
                 :src="imgUrl"
                 height="300px"
-
         >
           <v-container
             fill-height
@@ -21,6 +20,7 @@
         </v-img>
         <v-card-title style="position: relative;">
           <v-btn
+                  v-if="displayMode === 'shop'"
                   fab
                   color="orange"
                   class="white--text"
@@ -36,7 +36,8 @@
             <span class="grey--text text--darken-1">Category: {{ product.category.toLowerCase() }}</span><br>
             <v-divider light></v-divider>
             <span>Price: <strong>{{ product.price.toFixed(2) }} zł</strong></span><br>
-            <span>Available: <strong :class="`${availabilityColor}--text`">{{ available }}</strong></span><br>
+            <span v-if="displayMode==='shop'">Available: <strong :class="`${availabilityColor}--text`">{{ available }}</strong></span>
+            <span v-else>Quantity: <strong>{{this.product.quantity}}</strong></span><br>
           </div>
         </v-card-title>
         <v-card-text>
@@ -49,7 +50,7 @@
 <script>
     export default {
         name: "ProductsGridItem",
-        props: ['product'],
+        props: ['displayMode', 'product'],
         computed: {
             imgUrl() {
                 return this.product.imageURL || "https://picsum.photos/300/300?random";

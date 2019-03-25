@@ -6,6 +6,7 @@
         :key="product.id"
       >
         <ProductsGridItem
+                :displayMode="displayMode"
                 :product="product"
                 @addToCart="$emit('addToCart', $event)"
         ></ProductsGridItem>
@@ -19,7 +20,7 @@
     export default {
         name: "ProductsGrid",
         components: {ProductsGridItem},
-        props: ['products']
+        props: ['displayMode', 'products']
     }
 </script>
 

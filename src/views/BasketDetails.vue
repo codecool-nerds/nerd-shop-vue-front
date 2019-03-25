@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <ProductsGrid :products=basket></ProductsGrid>
+    <ProductsGrid
+            :displayMode="'basket'"
+            :products=basket
+    ></ProductsGrid>
   </v-container>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <v-container>
-    <ProductsGrid :products=products
+    <ProductsGrid :displayMode="'shop'"
+                  :products=products
                   @addToCart="$emit('addToCart', $event)"
     ></ProductsGrid>
   </v-container>
