@@ -66,7 +66,7 @@
         },
         methods: {
             addProductToCart(){
-
+              this.$emit('addToCart', this.product);
             }
         }
     }

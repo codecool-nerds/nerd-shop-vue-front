@@ -4,7 +4,10 @@
     <NavBar @categoryChosen="selectedCategory = $event" style="max-height: max-content;"></NavBar>
     <v-content>
       <v-container fluid>
-        <router-view :selectedCategory="selectedCategory"></router-view>
+        <router-view :selectedCategory="selectedCategory"
+                     :basket="basket"
+                     @addToCart="addToCart"
+        ></router-view>
       </v-container>
     </v-content>
     <Footer></Footer>
@@ -17,16 +20,22 @@ import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 export default {
-  name: 'App',
-  components: {
-      Footer,
-      NavBar,
-      Header
-  },
-  data () {
-    return {
-      selectedCategory: ''
+    name: 'App',
+    components: {
+        Footer,
+        NavBar,
+        Header
+    },
+    data () {
+      return {
+          selectedCategory: '',
+          basket: []
+      }
+    },
+    methods: {
+        addToCart(product) {
+            this.basket.push(product)
+        }
     }
-  }
 }
 </script>

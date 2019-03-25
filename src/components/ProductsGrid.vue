@@ -7,6 +7,7 @@
       >
         <ProductsGridItem
                 :product="product"
+                @addToCart="$emit('addToCart', $event)"
         ></ProductsGridItem>
       </v-flex>
     </v-layout>

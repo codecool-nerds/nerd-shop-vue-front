@@ -1,12 +1,17 @@
 <template>
-  <div>
-    <h1>Basket details here</h1>
-  </div>
+  <v-container>
+    <ProductsGrid :products=basket></ProductsGrid>
+  </v-container>
 </template>
 
 <script>
+    import ProductsGrid from "../components/ProductsGrid";
     export default {
-        name: "BasketDetails"
+      name: "BasketDetails",
+      components: {ProductsGrid},
+      props: [
+          'basket'
+      ]
     }
 </script>
 
