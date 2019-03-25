@@ -32,6 +32,18 @@
           >
             <v-icon>shopping_cart</v-icon>
           </v-btn>
+          <v-btn
+                  v-else
+                  fab
+                  color="red"
+                  class="white--text"
+                  top
+                  right
+                  absolute
+                  @click="deleteFromCart"
+          >
+            <v-icon>remove_shopping_cart</v-icon>
+          </v-btn>
           <div>
             <span class="grey--text text--darken-1">Category: {{ product.category.toLowerCase() }}</span><br>
             <v-divider light></v-divider>
@@ -70,10 +82,17 @@
             }
         },
         methods: {
-            addProductToCart(){
+            addProductToCart() {
                 let productToAdd = Object.assign({}, this.product);
                 productToAdd.quantity = 1;
                 this.$emit('addToCart', productToAdd);
+            },
+            deleteFromCart() {
+                if (this.product.quantity > 1) {
+                    this.product.quantity -= 1;
+                } else {
+                    this.$emit('removeFromCart', this.product.id);
+                }
             }
         }
     }

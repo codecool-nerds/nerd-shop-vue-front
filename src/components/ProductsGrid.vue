@@ -9,6 +9,7 @@
                 :displayMode="displayMode"
                 :product="product"
                 @addToCart="$emit('addToCart', $event)"
+                @removeFromCart="$emit('removeFromCart', $event)"
         ></ProductsGridItem>
       </v-flex>
     </v-layout>
