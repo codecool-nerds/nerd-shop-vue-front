@@ -22,6 +22,7 @@
 import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import * as axios from "axios";
 export default {
   name: "App",
   components: {
@@ -55,7 +56,14 @@ export default {
       this.basket.push(productToAdd);
     },
     loadProductsOfCategory(category) {
-      // TODO
+      axios
+        .get(`${this.$apiAdress}products?category=${category}`)
+        .then(response => {
+          this.products = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };

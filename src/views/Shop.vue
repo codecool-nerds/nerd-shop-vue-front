@@ -2,7 +2,7 @@
   <v-container class="py-0">
     <ProductsGrid
       :displayMode="'shop'"
-      :products="productsMock"
+      :products="products"
       @addToCart="$emit('addToCart', $event)"
     ></ProductsGrid>
   </v-container>
