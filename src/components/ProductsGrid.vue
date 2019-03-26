@@ -1,6 +1,14 @@
 <template>
   <v-container grid-list-lg>
-    <v-layout row justify-center wrap>
+    <v-layout v-if="loading" row justify-center>
+      <v-progress-circular
+              indeterminate
+              color="primary"
+              size="100"
+              width="10"
+      ></v-progress-circular>
+    </v-layout>
+    <v-layout v-else row justify-center wrap>
       <v-flex v-if="displayMode==='shop'">
         <v-alert
           :value="!isProductsListAvailable"
@@ -36,7 +44,7 @@ import ProductsGridItem from "./ProductsGridItem";
 export default {
   name: "ProductsGrid",
   components: { ProductsGridItem },
-  props: ["displayMode", "products"],
+  props: ["displayMode", "products", "loading"],
   computed: {
     isProductsListAvailable() {
       if (this.products) {

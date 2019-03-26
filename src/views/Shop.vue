@@ -3,6 +3,7 @@
     <ProductsGrid
       :displayMode="'shop'"
       :products="products"
+      :loading="loading"
       @addToCart="$emit('addToCart', $event)"
     ></ProductsGrid>
   </v-container>
@@ -13,7 +14,7 @@ import ProductsGrid from "../components/ProductsGrid";
 export default {
   name: "Shop",
   components: { ProductsGrid },
-  props: ["products"]
+  props: ["products", "loading"]
 };
 </script>
 
