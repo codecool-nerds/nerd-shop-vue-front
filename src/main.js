@@ -4,7 +4,7 @@ import App from "./App.vue";
 import router from "./router";
 
 Vue.config.productionTip = false;
-Vue.prototype.$apiAdress = 'http://localhost:8080/api/';
+Vue.prototype.$apiAdress = 'https://nerd-shop.herokuapp.com/api/';
 
 new Vue({
   router,
