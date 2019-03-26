@@ -52,8 +52,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.highlight {
-  background-color: #ffa71a;
-}
-</style>
+<style scoped></style>
