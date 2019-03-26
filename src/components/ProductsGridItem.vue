@@ -45,7 +45,7 @@
             <v-icon>remove_shopping_cart</v-icon>
           </v-btn>
           <div>
-            <span class="grey--text text--darken-1">Category: {{ product.category.toLowerCase() }}</span><br>
+            <span class="grey--text text--darken-1">Category: {{ product.category.name.toLowerCase() }}</span><br>
             <v-divider light></v-divider>
             <span v-if="displayMode==='shop'">Price: <strong>{{ product.price.toFixed(2) }} zł</strong></span>
             <span v-else>Price: <strong>{{ this.priceOfAllItems.toFixed(2) }} zł</strong> ({{ this.product.price.toFixed(2) }} zł each)</span><br>
