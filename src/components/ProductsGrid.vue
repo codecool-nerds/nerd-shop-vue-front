@@ -1,13 +1,22 @@
 <template>
   <v-container grid-list-lg>
     <v-layout row justify-center wrap>
-      <v-flex>
+      <v-flex v-if="displayMode==='shop'">
         <v-alert
           :value="!isProductsListAvailable"
           type="error"
           transition="scale-transition"
         >
           Cannot retrieve products of this category.
+        </v-alert>
+      </v-flex>
+      <v-flex v-else>
+        <v-alert
+                :value="!isProductsListAvailable"
+                type="info"
+                transition="scale-transition"
+        >
+          Your basket is empty.
         </v-alert>
       </v-flex>
       <v-flex v-for="product in products" :key="product.id">
