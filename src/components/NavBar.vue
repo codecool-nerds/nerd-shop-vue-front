@@ -25,14 +25,6 @@ export default {
     selectedCategory: "",
     navBarKey: 0
   }),
-  computed: {
-    isShopTheCurrentRoute() {
-      return this.$router.currentRoute.path === "/shop";
-    },
-    route() {
-      return this.$router.currentRoute.path;
-    }
-  },
   methods: {
     chooseCategory(category) {
       this.selectedCategory = category;
