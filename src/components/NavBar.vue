@@ -1,6 +1,18 @@
 <template>
   <v-container class="pa-0" :key="navBarKey">
     <v-layout align-start justify-space-around row>
+      <v-flex>
+        <v-btn
+                block
+                @click="chooseCategory('all')"
+                :class="{
+            orange:
+              $router.currentRoute.name === 'shop' &&
+              selectedCategory === 'all'
+          }">
+          All products
+        </v-btn>
+      </v-flex>
       <v-flex v-for="(category, i) in categories" :key="i">
         <v-btn
           block
@@ -23,7 +35,7 @@ import * as axios from "axios";
 export default {
   name: "NavBar",
   data: () => ({
-    categories: ["GAME", "MOUSE", "KEYBOARD", "HEADSET", "OTHER"],
+    categories: [],
     selectedCategory: "",
     navBarKey: 0
   }),
@@ -48,6 +60,7 @@ export default {
       .catch(error => {
         console.log(error);
       });
+    this.chooseCategory('all')
   }
 };
 </script>

@@ -56,14 +56,25 @@ export default {
       this.basket.push(productToAdd);
     },
     loadProductsOfCategory(category) {
-      axios
-        .get(`${this.$apiAdress}products?category=${category}`)
-        .then(response => {
-          this.products = response.data;
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      if (category === "all") {
+        axios
+          .get(`${this.$apiAdress}products`)
+          .then(response => {
+            this.products = response.data;
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      } else {
+        axios
+          .get(`${this.$apiAdress}products?category=${category}`)
+          .then(response => {
+            this.products = response.data;
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }
     }
   }
 };
