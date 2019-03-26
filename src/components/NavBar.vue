@@ -4,13 +4,13 @@
       <v-flex v-for="(category, i) in categories" :key="i">
         <v-btn
           block
-          @click="chooseCategory(category)"
+          @click="chooseCategory(category.name)"
           :class="{
             orange:
               $router.currentRoute.name === 'shop' &&
-              selectedCategory === category
+              selectedCategory === category.name
           }"
-          >{{ category }}</v-btn
+          >{{ category.name }}</v-btn
         >
       </v-flex>
     </v-layout>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import * as axios from "axios";
+
 export default {
   name: "NavBar",
   data: () => ({
@@ -36,6 +38,16 @@ export default {
     $route() {
       this.navBarKey += 1;
     }
+  },
+  mounted() {
+    axios
+      .get(`${this.$apiAdress}categories`)
+      .then(response => {
+        this.categories = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 };
 </script>
