@@ -53,7 +53,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`${this.$apiAdress}categories`)
+      .get(`${this.$apiAdress}/categories`)
       .then(response => {
         this.categories = response.data;
       })

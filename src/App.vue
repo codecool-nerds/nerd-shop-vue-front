@@ -59,31 +59,23 @@ export default {
     },
     loadProductsOfCategory(category) {
       this.isLoadingProducts = true;
-      if (category === "all") {
-        axios
-          .get(`${this.$apiAdress}products`)
-          .then(response => {
-            this.products = response.data;
-          })
-          .catch(error => {
-            console.log(error);
-          })
-          .finally(() => {
-            this.isLoadingProducts = false;
-          });
-      } else {
-        axios
-          .get(`${this.$apiAdress}products?category=${category}`)
-          .then(response => {
-            this.products = response.data;
-          })
-          .catch(error => {
-            console.log(error);
-          })
-          .finally(() => {
-            this.isLoadingProducts = false;
-          });
+      let requestURL = `${this.$apiAdress}/products`;
+
+      if (category !== "all") {
+        requestURL += `?category=${category}`;
       }
+
+      axios
+        .get(requestURL)
+        .then(response => {
+          this.products = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        })
+        .finally(() => {
+          this.isLoadingProducts = false;
+        });
     }
   }
 };
