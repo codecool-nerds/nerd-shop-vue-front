@@ -2,20 +2,18 @@
   <v-toolbar color="primary">
     <v-toolbar-title class="ml-1 mr-3 white--text">Nerd Shop</v-toolbar-title>
     <v-text-field
-            class="mx-4"
-            background-color="white"
-            color="secondary"
-            v-model="searchText"
-            label="Search on the page"
-            append-icon="search"
-            @click:append="search"
-            @keyup="searchIfEnterPressed"
-            single-line
+      class="mx-4"
+      background-color="white"
+      color="secondary"
+      v-model="searchText"
+      label="Search on the page"
+      append-icon="search"
+      @click:append="search"
+      @keyup="searchIfEnterPressed"
+      single-line
     ></v-text-field>
 
-    <v-menu offset-y
-            open-on-hover
-    >
+    <v-menu offset-y open-on-hover>
       <template v-slot:activator="{ on }">
         <v-btn v-on="on" flat class="white--text">
           <v-avatar size="36px" class="mx-2">
@@ -31,7 +29,7 @@
           >
           <v-icon>shopping_cart</v-icon>
         </v-list-tile>
-        <v-list-tile @click="">
+        <v-list-tile @click="logout">
           <v-list-tile-title>Logout</v-list-tile-title>
           <v-icon>settings_power</v-icon>
         </v-list-tile>
@@ -59,6 +57,9 @@ export default {
     },
     goToBasket() {
       this.$router.push("/basket");
+    },
+    logout() {
+      this.$router.push("/login");
     }
   }
 };
