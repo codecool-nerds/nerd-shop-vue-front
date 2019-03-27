@@ -1,9 +1,6 @@
 <template>
   <v-footer height="auto">
     <v-card class="flex secondary text-xs-center white--text">
-      <v-card-text class="pb-0 justify-center">
-        <strong>Get connected with us on social networks!</strong>
-      </v-card-text>
       <v-card-title class="py-0">
         <v-spacer></v-spacer>
         <strong class="accent--text">Adrian:</strong>
@@ -19,6 +16,8 @@
         >
           <v-icon>fab fa-github</v-icon>
         </v-btn>
+        <v-spacer></v-spacer>
+        <strong>Get connected with us on social networks!</strong>
         <v-spacer></v-spacer>
         <strong class="accent--text">Rafał:</strong>
         <v-btn class="mx-3 white--text"
