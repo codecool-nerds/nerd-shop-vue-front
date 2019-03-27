@@ -1,12 +1,12 @@
 <template>
   <v-footer height="auto">
-    <v-card class="flex secondary text-xs-center">
+    <v-card class="flex secondary text-xs-center white--text">
       <v-card-text class="pb-0 justify-center">
         <strong>Get connected with us on social networks!</strong>
       </v-card-text>
       <v-card-title class="py-0">
         <v-spacer></v-spacer>
-        <strong>Adrian:</strong>
+        <strong class="accent--text">Adrian:</strong>
         <v-btn class="mx-3 white--text"
                icon
                href="https://www.linkedin.com/in/adrian-ostromęcki"
@@ -20,7 +20,7 @@
           <v-icon>fab fa-github</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
-        <strong>Rafał:</strong>
+        <strong class="accent--text">Rafał:</strong>
         <v-btn class="mx-3 white--text"
                icon
                href="https://www.linkedin.com/in/rafa%C5%82-becla-967bab137/"
@@ -35,7 +35,7 @@
         </v-btn>
         <v-spacer></v-spacer>
       </v-card-title>
-      <v-card-actions class="accent justify-center">
+      <v-card-actions class="primary justify-center">
         &copy;2019 — <strong>Nerds</strong>
         <v-btn icon class="white--text"
           href="https://github.com/codecool-nerds"

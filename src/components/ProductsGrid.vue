@@ -13,6 +13,7 @@
         <v-alert
           :value="!isProductsListAvailable"
           type="error"
+          color="error"
           transition="scale-transition"
         >
           Cannot retrieve products of this category.
@@ -22,6 +23,7 @@
         <v-alert
                 :value="!isProductsListAvailable"
                 type="info"
+                color="info"
                 transition="scale-transition"
         >
           Your basket is empty.

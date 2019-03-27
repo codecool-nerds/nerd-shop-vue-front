@@ -5,11 +5,8 @@
         <v-btn
                 block
                 @click="chooseCategory('all')"
-                :class="{
-            orange:
-              $router.currentRoute.name === 'shop' &&
-              selectedCategory === 'all'
-          }">
+                :class="[{ accent: isActive('all')}, {secondary: !isActive('all')}]"
+        >
           All products
         </v-btn>
       </v-flex>
@@ -17,11 +14,7 @@
         <v-btn
           block
           @click="chooseCategory(category.name)"
-          :class="{
-            orange:
-              $router.currentRoute.name === 'shop' &&
-              selectedCategory === category.name
-          }"
+          :class="[{ accent: isActive(category.name)}, {secondary: !isActive(category.name)}]"
           >{{ category.name }}</v-btn
         >
       </v-flex>
@@ -44,7 +37,14 @@ export default {
       this.selectedCategory = category;
       this.$emit("categoryChosen", category);
       this.$router.push("/shop");
-    }
+    },
+      isActive(category) {
+          if (this.$router.currentRoute.name === 'shop' &&
+              this.selectedCategory === category){
+              return true;
+          }
+          return false;
+      }
   },
   watch: {
     $route() {

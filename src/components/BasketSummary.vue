@@ -5,7 +5,7 @@
     <span class="subheading mx-auto">Total count: {{ basketCapacity }}</span>
     <span class="headline ml-auto">Total price: {{ totalPrice.toFixed(2) }} zł</span>
     <v-btn
-            color="green"
+            color="success"
             class="white--text"
             @click=""
             :disabled="totalPrice === 0"

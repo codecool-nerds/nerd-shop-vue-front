@@ -22,7 +22,7 @@
           <v-btn
                   v-if="displayMode === 'shop'"
                   fab
-                  color="orange"
+                  color="accent"
                   class="white--text"
                   top
                   right
@@ -35,7 +35,7 @@
           <v-btn
                   v-else
                   fab
-                  color="red"
+                  color="error"
                   class="white--text"
                   top
                   right
