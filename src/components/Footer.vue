@@ -7,25 +7,39 @@
       <v-card-title class="py-0">
         <v-spacer></v-spacer>
         <strong>Adrian:</strong>
-        <v-btn class="mx-3 white--text" icon>
+        <v-btn class="mx-3 white--text"
+               icon
+               href="https://www.linkedin.com/in/adrian-ostromęcki"
+        >
           <v-icon>fab fa-linkedin</v-icon>
         </v-btn>
-        <v-btn icon class="white--text">
+        <v-btn icon
+               class="white--text"
+               href="https://github.com/adrianOstromecki"
+        >
           <v-icon>fab fa-github</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
         <strong>Rafał:</strong>
-        <v-btn class="mx-3 white--text" icon>
+        <v-btn class="mx-3 white--text"
+               icon
+               href="https://www.linkedin.com/in/rafa%C5%82-becla-967bab137/"
+        >
           <v-icon>fab fa-linkedin</v-icon>
         </v-btn>
-        <v-btn icon class="white--text">
+        <v-btn icon
+               class="white--text"
+               href="https://github.com/Paprok"
+        >
           <v-icon>fab fa-github</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
       </v-card-title>
       <v-card-actions class="accent justify-center">
         &copy;2019 — <strong>Nerds</strong>
-        <v-btn icon class="white--text">
+        <v-btn icon class="white--text"
+          href="https://github.com/codecool-nerds"
+        >
           <v-icon>fab fa-github</v-icon>
         </v-btn>
         <strong> (Adrian & Rafał)</strong>
