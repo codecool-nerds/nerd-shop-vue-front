@@ -7,14 +7,12 @@
               size="100"
               width="10"
       ></v-progress-circular>
-    </v-layout>
-    <v-layout v-else row justify-center wrap>
       <v-flex v-if="displayMode==='shop'">
         <v-alert
-          :value="!isProductsListAvailable"
-          type="error"
-          color="error"
-          transition="scale-transition"
+                :value="!isProductsListAvailable"
+                type="error"
+                color="error"
+                transition="scale-transition"
         >
           Cannot retrieve products of this category.
         </v-alert>
@@ -29,7 +27,10 @@
           Your basket is empty.
         </v-alert>
       </v-flex>
-      <v-flex v-for="product in products" :key="product.id">
+    </v-layout>
+    <v-layout v-else row justify-start wrap>
+      <v-flex v-for="product in products" :key="product.id"
+              v-if="product.id !== 12">
         <ProductsGridItem
           :displayMode="displayMode"
           :product="product"
