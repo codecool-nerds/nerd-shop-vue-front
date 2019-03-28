@@ -2,42 +2,49 @@
   <v-container grid-list-lg>
     <v-layout v-if="loading" row justify-center>
       <v-progress-circular
-              indeterminate
-              color="primary"
-              size="100"
-              width="10"
+        indeterminate
+        color="primary"
+        size="100"
+        width="10"
       ></v-progress-circular>
-      <v-flex v-if="displayMode==='shop'">
-        <v-alert
-                :value="!isProductsListAvailable"
-                type="error"
-                color="error"
-                transition="scale-transition"
-        >
-          Cannot retrieve products of this category.
-        </v-alert>
-      </v-flex>
-      <v-flex v-else>
-        <v-alert
-                :value="!isProductsListAvailable"
-                type="info"
-                color="info"
-                transition="scale-transition"
-        >
-          Your basket is empty.
-        </v-alert>
-      </v-flex>
     </v-layout>
-    <v-layout v-else row justify-start wrap>
-      <v-flex v-for="product in products" :key="product.id"
-              v-if="product.id !== 12">
-        <ProductsGridItem
-          :displayMode="displayMode"
-          :product="product"
-          @addToCart="$emit('addToCart', $event)"
-          @removeFromCart="$emit('removeFromCart', $event)"
-        ></ProductsGridItem>
-      </v-flex>
+    <v-layout v-else column justify-center>
+      <v-layout row justify-center>
+        <v-flex v-if="displayMode === 'shop'">
+          <v-alert
+            :value="!isProductsListAvailable"
+            type="error"
+            color="error"
+            transition="scale-transition"
+          >
+            Cannot retrieve products of this category.
+          </v-alert>
+        </v-flex>
+        <v-flex v-else>
+          <v-alert
+            :value="!isProductsListAvailable"
+            type="info"
+            color="info"
+            transition="scale-transition"
+          >
+            Your basket is empty.
+          </v-alert>
+        </v-flex>
+      </v-layout>
+      <v-layout row justify-center wrap>
+        <v-flex
+          v-for="product in products"
+          :key="product.id"
+          v-if="product.id !== 12"
+        >
+          <ProductsGridItem
+            :displayMode="displayMode"
+            :product="product"
+            @addToCart="$emit('addToCart', $event)"
+            @removeFromCart="$emit('removeFromCart', $event)"
+          ></ProductsGridItem>
+        </v-flex>
+      </v-layout>
     </v-layout>
   </v-container>
 </template>
