@@ -1,15 +1,20 @@
 <template>
   <v-container class="pa-0" :key="navBarKey">
     <v-layout align-start justify-space-around row>
+      <v-flex>
+        <v-btn
+                block
+                @click="chooseCategory('all')"
+                :class="[{ accent: isActive('all')}, {secondary: !isActive('all')}]"
+        >
+          All products
+        </v-btn>
+      </v-flex>
       <v-flex v-for="(category, i) in categories" :key="i">
         <v-btn
           block
           @click="chooseCategory(category.name)"
-          :class="{
-            orange:
-              $router.currentRoute.name === 'shop' &&
-              selectedCategory === category.name
-          }"
+          :class="[{ accent: isActive(category.name)}, {secondary: !isActive(category.name)}]"
           >{{ category.name }}</v-btn
         >
       </v-flex>
@@ -23,7 +28,7 @@ import * as axios from "axios";
 export default {
   name: "NavBar",
   data: () => ({
-    categories: ["GAME", "MOUSE", "KEYBOARD", "HEADSET", "OTHER"],
+    categories: [],
     selectedCategory: "",
     navBarKey: 0
   }),
@@ -32,7 +37,14 @@ export default {
       this.selectedCategory = category;
       this.$emit("categoryChosen", category);
       this.$router.push("/shop");
-    }
+    },
+      isActive(category) {
+          if (this.$router.currentRoute.name === 'shop' &&
+              this.selectedCategory === category){
+              return true;
+          }
+          return false;
+      }
   },
   watch: {
     $route() {
@@ -41,13 +53,14 @@ export default {
   },
   mounted() {
     axios
-      .get(`${this.$apiAdress}categories`)
+      .get(`${this.$apiAdress}/categories`)
       .then(response => {
         this.categories = response.data;
       })
       .catch(error => {
         console.log(error);
       });
+    this.chooseCategory('all')
   }
 };
 </script>

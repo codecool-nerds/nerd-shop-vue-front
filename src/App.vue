@@ -10,6 +10,7 @@
         <router-view
           :products="products"
           :basket="basket"
+          :loading="isLoadingProducts"
           @addToCart="addToCart"
         ></router-view>
       </v-container>
@@ -33,7 +34,8 @@ export default {
   data() {
     return {
       basket: [],
-      products: []
+      products: [],
+      isLoadingProducts: false
     };
   },
   computed: {
@@ -56,13 +58,23 @@ export default {
       this.basket.push(productToAdd);
     },
     loadProductsOfCategory(category) {
+      this.isLoadingProducts = true;
+      let requestURL = `${this.$apiAdress}/products`;
+
+      if (category !== "all") {
+        requestURL += `?category=${category}`;
+      }
+
       axios
-        .get(`${this.$apiAdress}products?category=${category}`)
+        .get(requestURL)
         .then(response => {
           this.products = response.data;
         })
         .catch(error => {
           console.log(error);
+        })
+        .finally(() => {
+          this.isLoadingProducts = false;
         });
     }
   }

@@ -1,33 +1,47 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home";
+
 import Shop from "./views/Shop";
-import ProductDetails from "@/views/ProductDetails";
-import BasketDetails from "@/views/BasketDetails";
+import BasketDetails from "./views/BasketDetails";
+import Login from "./components/Login";
 
 Vue.use(Router);
 
-export default new Router({
+export const router = new Router({
   routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home
-    },
     {
       path: "/shop",
       name: "shop",
       component: Shop
     },
     {
-      path: "/product/:id",
-      name: "productDetails",
-      component: ProductDetails
-    },
-    {
       path: "/basket",
       name: "basketDetails",
       component: BasketDetails
+    },
+    {
+      path: "/login",
+      component: Login
+    },
+    {
+      path: "*",
+      redirect: "/shop"
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  // redirect to login page if not logged in and trying to access a restricted page
+  const publicPages = ['/shop', '/login', '/basket'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  if (authRequired && !loggedIn) {
+    return next({
+      path: '/login',
+      query: { returnUrl: to.path }
+    });
+  }
+
+  next();
+})
